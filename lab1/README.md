@@ -1,20 +1,20 @@
 <h1>Лабораторная работа №1</h1>
 
-Выполнил студент группы 6132-010402D Казаркин Тимофей
+Выполнили студенты группы 6132-010402D Казаркин Тимофей и Абакумов Леонид
 
 <h2>Задание 1</h2>
 
 1. Установить сервер приложений glassfish
 
-![GlassFish7 install](/images/1.1.png)
+![GlassFish7 install](images/1.1.png)
 
 2. Запустить сервер
 
-![GlassFish7 start](/images/1.2.png)
+![GlassFish7 start](images/1.2.png)
 
 3. Открыть административную консоль
 
-![GlassFish7 settings](/images/1.3.png)
+![GlassFish7 settings](images/1.3.png)
 
 <h2>Задание 2</h2>
 
@@ -28,9 +28,9 @@
 
 В качестве предметной области был выбран "книжный магазин" с 2 сущностями: "авторы" и "книги"
 
-![GlassFish7 settings](/images/3.1.png)
-![GlassFish7 settings](/images/3.2.png)
-![GlassFish7 settings](/images/3.3.png)
+![GlassFish7 settings](images/3.1.png)
+![GlassFish7 settings](images/3.2.png)
+![GlassFish7 settings](images/3.3.png)
 
 2. Написать скрипт для создания базы данных
 
@@ -125,7 +125,7 @@ OWNER to postgres;
 
 Заставить всё это работать вместе...
 
-![WebApp MainPage](/images/7.1.png)
-![WebApp Authors](/images/7.2.png)
-![WebApp Books](/images/7.3.png)
+![WebApp MainPage](images/7.1.png)
+![WebApp Authors](images/7.2.png)
+![WebApp Books](images/7.3.png)
 
