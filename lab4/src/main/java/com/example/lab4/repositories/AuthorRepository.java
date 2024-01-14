@@ -1,0 +1,9 @@
+package com.example.lab4.repositories;
+
+import com.example.lab4.models.AuthorEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.UUID;
+
+public interface AuthorRepository extends JpaRepository<AuthorEntity, UUID> {
+}

@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: test
+  jackson:
+    mapper:
+      ACCEPT_CASE_INSENSITIVE_ENUMS: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/BookShop
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 1
+      auto-commit: false
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.default_schema: public
+  artemis:
+    user:  admin
+    password:  secret
+  mail:
+    host: ${SMTP_HOST:smtp.gmail.com}
+    port: ${SMTP_PORT:587}
+    username: chachelkpivu@gmail.com
+    password: 9r2-psM-FR8-hE7
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            required: true
+  jms:
+    pub-sub-domain: true
+application:
+  topic:
+    audit: audit_queue
