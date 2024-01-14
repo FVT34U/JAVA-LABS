@@ -34,47 +34,47 @@
 
 2. Написать скрипт для создания базы данных
 
-[Здесь](src/BookShop.db)
+    [Здесь](src/BookShop.db)
 
-```sql
--- Table: public.authors
-
--- DROP TABLE IF EXISTS public.authors;
-
-CREATE TABLE IF NOT EXISTS public.authors
-(
-authorid uuid NOT NULL,
-name character varying(50) COLLATE pg_catalog."default",
-CONSTRAINT authors_pkey PRIMARY KEY (authorid)
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.authors
-OWNER to postgres;
-
--- Table: public.books
-
--- DROP TABLE IF EXISTS public.books;
-
-CREATE TABLE IF NOT EXISTS public.books
-(
-id uuid NOT NULL,
-title character varying(50) COLLATE pg_catalog."default",
-litgenre character varying(50) COLLATE pg_catalog."default",
-authorid uuid,
-CONSTRAINT books_pkey PRIMARY KEY (id),
-CONSTRAINT books_authorid_fkey FOREIGN KEY (authorid)
-REFERENCES public.authors (authorid) MATCH SIMPLE
-ON UPDATE NO ACTION
-ON DELETE NO ACTION
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.books
-OWNER to postgres;
-```
+    ```sql
+    -- Table: public.authors
+    
+    -- DROP TABLE IF EXISTS public.authors;
+    
+    CREATE TABLE IF NOT EXISTS public.authors
+    (
+    authorid uuid NOT NULL,
+    name character varying(50) COLLATE pg_catalog."default",
+    CONSTRAINT authors_pkey PRIMARY KEY (authorid)
+    )
+    
+    TABLESPACE pg_default;
+    
+    ALTER TABLE IF EXISTS public.authors
+    OWNER to postgres;
+    
+    -- Table: public.books
+    
+    -- DROP TABLE IF EXISTS public.books;
+    
+    CREATE TABLE IF NOT EXISTS public.books
+    (
+    id uuid NOT NULL,
+    title character varying(50) COLLATE pg_catalog."default",
+    litgenre character varying(50) COLLATE pg_catalog."default",
+    authorid uuid,
+    CONSTRAINT books_pkey PRIMARY KEY (id),
+    CONSTRAINT books_authorid_fkey FOREIGN KEY (authorid)
+    REFERENCES public.authors (authorid) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    )
+    
+    TABLESPACE pg_default;
+    
+    ALTER TABLE IF EXISTS public.books
+    OWNER to postgres;
+    ```
 
 <h2>Задание 4</h2>
 
