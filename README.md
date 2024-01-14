@@ -2,7 +2,7 @@
 
 [LAB1](lab1/README.md)
 
-[LAB2]()
+[LAB2](lab2/README.md)
 
 [LAB3]()
 
