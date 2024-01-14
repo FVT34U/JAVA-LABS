@@ -6,15 +6,15 @@
 
 1. Установить сервер приложений glassfish
 
-![GlassFish7 install](images/1.1.png)
+    ![GlassFish7 install](images/1.1.png)
 
 2. Запустить сервер
 
-![GlassFish7 start](images/1.2.png)
+    ![GlassFish7 start](images/1.2.png)
 
 3. Открыть административную консоль
 
-![GlassFish7 settings](images/1.3.png)
+    ![GlassFish7 settings](images/1.3.png)
 
 <h2>Задание 2</h2>
 
@@ -26,11 +26,11 @@
 
 1. Выбрать предметную область на своё усмотрение и создать минимум 2 сущности с несколькими параметрами
 
-В качестве предметной области был выбран "книжный магазин" с 2 сущностями: "авторы" и "книги"
+    В качестве предметной области был выбран "книжный магазин" с 2 сущностями: "авторы" и "книги"
 
-![GlassFish7 settings](images/3.1.png)
-![GlassFish7 settings](images/3.2.png)
-![GlassFish7 settings](images/3.3.png)
+    ![GlassFish7 settings](images/3.1.png)
+    ![GlassFish7 settings](images/3.2.png)
+    ![GlassFish7 settings](images/3.3.png)
 
 2. Написать скрипт для создания базы данных
 
@@ -82,13 +82,13 @@ OWNER to postgres;
 
 1. Для авторов:
 
-[Здесь](src/main/java/com/example/lab1/repositories/AuthorRepository.java)
-и [здесь](src/main/java/com/example/lab1/models/AuthorEntity.java)
+    [Здесь](src/main/java/com/example/lab1/repositories/AuthorRepository.java)
+    и [здесь](src/main/java/com/example/lab1/models/AuthorEntity.java)
 
 2. Для книг:
 
-[Здесь](src/main/java/com/example/lab1/repositories/BookRepository.java)
-и [здесь](src/main/java/com/example/lab1/models/BookEntity.java)
+    [Здесь](src/main/java/com/example/lab1/repositories/BookRepository.java)
+    и [здесь](src/main/java/com/example/lab1/models/BookEntity.java)
 
 <h2>Задание 5</h2>
 
