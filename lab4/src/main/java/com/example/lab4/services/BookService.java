@@ -1,8 +1,11 @@
 package com.example.lab4.services;
 
+import com.example.lab4.models.AuditEvent;
+import com.example.lab4.models.AuthorEntity;
 import com.example.lab4.models.BookEntity;
 import com.example.lab4.models.dto.BookRequest;
 import com.example.lab4.repositories.BookRepository;
+import com.example.lab4.utils.EventLogger;
 import com.example.lab4.utils.ObjectToDomTransformer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +29,8 @@ public class BookService {
 
     private final BookRepository bookRepository;
 
+    private final EventLogger eventLogger;
+
     @SneakyThrows
     public ResponseEntity<String> getAll() {
         return new ResponseEntity<>(objectMapper.writeValueAsString(bookRepository.findAll()), HttpStatus.OK);
@@ -33,11 +38,16 @@ public class BookService {
 
     public ResponseEntity<String> create(BookRequest bookRequest){
         BookEntity book = new BookEntity(randomUUID(), bookRequest.getTitle(), bookRequest.getLitGenre(), bookRequest.getAuthorID());
+        eventLogger.log(book, AuditEvent.CREATE);
         bookRepository.save(book);
         return new ResponseEntity<>("", HttpStatus.OK);
     }
 
     public ResponseEntity<String> delete(UUID bookID) {
+        BookEntity bookEntity = new BookEntity(bookID, bookRepository.getReferenceById(bookID).getTitle(),
+                bookRepository.getReferenceById(bookID).getLitGenre(),
+                bookRepository.getReferenceById(bookID).getAuthorID());
+        eventLogger.log(bookEntity, AuditEvent.DELETE);
         bookRepository.deleteById(bookID);
         return new ResponseEntity<>("", HttpStatus.OK);
     }

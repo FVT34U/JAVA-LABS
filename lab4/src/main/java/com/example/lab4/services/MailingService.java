@@ -18,6 +18,7 @@ public class MailingService {
     public void sendSimpleEmail(String toAddress, AuditMessage auditMessage) {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setTo(toAddress);
+        simpleMailMessage.setFrom("captaintedotron55@gmail.com");
         simpleMailMessage.setSubject(SUBJECT_TEMPLATE.formatted(auditMessage.getTable()));
         simpleMailMessage.setText(MESSAGE_TEMPLATE.formatted(auditMessage.getInfo(), auditMessage.getDatetime()));
         emailSender.send(simpleMailMessage);

@@ -1,8 +1,10 @@
 package com.example.lab4.services;
 
+import com.example.lab4.models.AuditEvent;
 import com.example.lab4.models.AuthorEntity;
 import com.example.lab4.models.dto.AuthorRequest;
 import com.example.lab4.repositories.AuthorRepository;
+import com.example.lab4.utils.EventLogger;
 import com.example.lab4.utils.ObjectToDomTransformer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +28,8 @@ public class AuthorService {
 
     private final AuthorRepository authorRepository;
 
+    private final EventLogger eventLogger;
+
     @SneakyThrows
     public ResponseEntity<String> getAll() {
         return new ResponseEntity<>(objectMapper.writeValueAsString(authorRepository.findAll()), HttpStatus.OK);
@@ -33,11 +37,14 @@ public class AuthorService {
 
     public ResponseEntity<String> create(AuthorRequest directorRequest){
         AuthorEntity author = new AuthorEntity(randomUUID(), directorRequest.getName());
+        eventLogger.log(author, AuditEvent.CREATE);
         authorRepository.save(author);
         return new ResponseEntity<>("", HttpStatus.OK);
     }
 
     public ResponseEntity<String> delete(UUID authorID) {
+        AuthorEntity authorEntity = new AuthorEntity(authorID, authorRepository.getReferenceById(authorID).getName());
+        eventLogger.log(authorEntity, AuditEvent.DELETE);
         authorRepository.deleteById(authorID);
         return new ResponseEntity<>("", HttpStatus.OK);
     }
